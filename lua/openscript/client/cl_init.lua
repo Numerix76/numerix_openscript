@@ -33,7 +33,9 @@ net.Receive( "OpenScript:OpenPanel" , function ( len , ply )
     timer.Simple(0.001, function() OpenScript.Base:MoveToFront() end)
 
     if string.sub(OpenScript.Settings.Background, 1, 4) == "http" then
-		OpenScript.GetImage(OpenScript.Settings.Background, OpenScript.Settings.BackgroundName, function(url, filename)
+		OpenScript.GetImage(OpenScript.Settings.Background, "background.png", function(url, filename)
+            if !IsValid(OpenScript.Base) then return end
+
 			local background = Material(filename)
             OpenScript.Base.Paint = function(self, w, h)
                 surface.SetDrawColor(color_white)
@@ -90,7 +92,7 @@ net.Receive( "OpenScript:OpenPanel" , function ( len , ply )
     
     local icon1 = Material(OpenScript.Settings.Link1IMG)
     if string.sub(OpenScript.Settings.Link1IMG, 1, 4) == "http" then
-		OpenScript.GetImage(OpenScript.Settings.Link1IMG, OpenScript.Settings.Link1Name, function(url, filename)
+		OpenScript.GetImage(OpenScript.Settings.Link1IMG, "button1.png", function(url, filename)
 			icon1 = Material(filename)
         end)
     end
@@ -123,7 +125,7 @@ net.Receive( "OpenScript:OpenPanel" , function ( len , ply )
 
     local icon2 = Material(OpenScript.Settings.Link2IMG)
     if string.sub(OpenScript.Settings.Link2IMG, 1, 4) == "http" then
-        OpenScript.GetImage(OpenScript.Settings.Link2IMG, OpenScript.Settings.Link2Name, function(url, filename)
+        OpenScript.GetImage(OpenScript.Settings.Link2IMG, "button2.png", function(url, filename)
 			icon2 = Material(filename)
         end)
     end
@@ -156,7 +158,7 @@ net.Receive( "OpenScript:OpenPanel" , function ( len , ply )
 
     local icon3 = Material(OpenScript.Settings.Link3IMG)
     if string.sub(OpenScript.Settings.Link3IMG, 1, 4) == "http" then
-		OpenScript.GetImage(OpenScript.Settings.Link3IMG, OpenScript.Settings.Link3Name, function(url, filename)
+		OpenScript.GetImage(OpenScript.Settings.Link3IMG, "button3.png", function(url, filename)
 			icon3 = Material(filename)
         end)
     end
@@ -189,7 +191,7 @@ net.Receive( "OpenScript:OpenPanel" , function ( len , ply )
 
     local icon4 = Material(OpenScript.Settings.DisconnectIMG)
     if string.sub(OpenScript.Settings.DisconnectIMG, 1, 4) == "http" then
-		OpenScript.GetImage(OpenScript.Settings.DisconnectIMG, OpenScript.Settings.DisconnectName, function(url, filename)
+		OpenScript.GetImage(OpenScript.Settings.DisconnectIMG, "button4.png", function(url, filename)
 			icon4 = Material(filename)
         end)
     end

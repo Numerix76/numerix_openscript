@@ -11,7 +11,7 @@ OpenScript.Language = OpenScript.Language or {}
 
 local FileSystem = "openscript"
 local AddonName = "OpenScript"
-local Version = "1.0.3"
+local Version = "1.0.4"
 local FromWorkshop = false
 
 if SERVER then
